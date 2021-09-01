@@ -1,0 +1,10 @@
+The Program Purpose:
+
+Here, I implement in Python a stripped down and simplified web cache, leveraging the web server and web downloader client I have implemented as part of "client-server".  
+Web caches can be complex, but this one is pretty straightforward.  
+In a nutshell, our cache will sit between our web client and web server.  
+With the appropriate command line options, we will route requests from our web client to our web server through our cache, using it as a proxy.  
+In the process, the cache will save copies of all files that pass through it for a period of time.  
+Subsequent requests will use the cached version instead of going all the way to our web server to retrieve the files.  
+Conditional GET requests and other mechanisms will be used to help make sure the cache doesn't get out of sync with the files stored with your web server.
+Client, weeb server and cache have to be in separate directories in order to communicate with each other.
