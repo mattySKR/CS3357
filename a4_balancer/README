@@ -1,0 +1,13 @@
+Program Purpose:
+
+Here I implement in Python a stripped down and simplified web load balancer, leveraging the web server and web downloader client implemented as part of "client-server" and reused in "a3_cache_".  
+We will not need to use our web cache from "a3_cache" here, though it should theoretically still work with all of this.  
+
+A load balancer can be complex, but we will be making a pretty straightforward one.  
+Usually, these things work with DNS and other systems to spread incoming requests across a pool of servers, but in our case we will be doing this entirely with HTTP redirection.
+In a nutshell, our load balancer will sit between our web client and multiple instances of our web server.  
+When the client submits a request, it will be sending its request to the load balancer, thinking it is the one and only source of the files it is looking for.  
+The load balancer will have a list of the actual servers hosting the content, will select a server from the list, and respond to the client with a redirection response to inform the client to retrieve the file from the given server.  
+On receiving this, the client will connect with the designated server and retrieve its file.  
+Periodically, the load balancer will check each server to get a measure of their responsiveness and performance, and use this information to influence its selection process, directing more client requests to the better performing server instances.  
+(In theory, this would be partially influenced by client and server location, but this approach should still do the job for us!)
