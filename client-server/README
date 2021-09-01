@@ -1,0 +1,12 @@
+The Program Purpose:
+
+Here I implement in Python a stripped down and simplified web server and web downloader client.  
+In response to a request, web server simply reads the contents of a named file and pushes it back over the same connection. 
+I used telent connection to download things.
+For this assignment, we mostly concentrate on implementing the GET request of HTTP/1.1. 
+In other words, your downloader will open a TCP connection to our server and issue a request like: GET /index.html HTTP/1.1 with an appropriate Host: header.  
+Our server will open this file relative to its current directory, read the contents, and send back the results. 
+The downloader will save the file to disk relative to its own current directory, and close the connection. 
+When done, in theory, we should be able to use a web browser to talk to our server, or use our web downloader client to retrieve documents off of another web site, provided that the web site doesn't require HTTPS for security.  
+(You might run into version compatibility issues since your client and server are trying to force HTTP/1.1, but it should otherwise work ...)  
+The web server has to be in a separate directory in order to communicate with the client.
